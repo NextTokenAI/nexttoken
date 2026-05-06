@@ -1,0 +1,43 @@
+name: Publish Node Package
+
+on:
+  push:
+    tags:
+      - 'node-v*'
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          registry-url: 'https://registry.npmjs.org'
+
+      # Build the sibling SDK so the file:../typescript dep resolves a
+      # working dist/ for the test step. (At publish time, prepack swaps
+      # the dep to the published ^X.Y.Z range; this step is just to make
+      # the pre-publish test pass against in-tree source.)
+      - name: Install + build SDK
+        working-directory: packages/typescript
+        run: |
+          npm ci
+          npm run build
+
+      - name: Install CLI deps
+        working-directory: packages/node
+        run: npm install
+
+      - name: CLI tests
+        working-directory: packages/node
+        run: npm test
+
+      - name: Publish to npm (prepack swaps SDK dep to ^X.Y.Z)
+        working-directory: packages/node
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm publish

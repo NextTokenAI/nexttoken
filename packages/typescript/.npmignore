@@ -1,0 +1,11 @@
+tests/
+examples/
+node_modules/
+src/
+*.tsbuildinfo
+tsconfig.json
+tsup.config.ts
+vitest.config.ts
+.gitignore
+.npmignore
+coverage/

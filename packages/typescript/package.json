@@ -1,0 +1,58 @@
+{
+  "name": "@nexttoken/sdk",
+  "version": "0.1.0",
+  "description": "Official TypeScript SDK for NextToken — agents, workspaces, search, fetch, integrations.",
+  "license": "MIT",
+  "author": "NextToken <contact@nexttoken.co>",
+  "homepage": "https://nexttoken.co",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NextTokenAI/nexttoken.git",
+    "directory": "packages/typescript"
+  },
+  "bugs": {
+    "url": "https://github.com/NextTokenAI/nexttoken/issues"
+  },
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run typecheck && npm run test && npm run build"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "nexttoken",
+    "ai",
+    "agents",
+    "sdk",
+    "llm"
+  ],
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "tsup": "^8.0.0",
+    "tsx": "^4.7.0",
+    "typescript": "^5.4.0",
+    "vitest": "^1.6.0"
+  }
+}

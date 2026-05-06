@@ -1,0 +1,41 @@
+name: Publish TypeScript SDK
+
+on:
+  push:
+    tags:
+      - 'ts-sdk-v*'
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install dependencies
+        working-directory: packages/typescript
+        run: npm ci
+
+      - name: Typecheck
+        working-directory: packages/typescript
+        run: npm run typecheck
+
+      - name: Test
+        working-directory: packages/typescript
+        run: npm test
+
+      - name: Build
+        working-directory: packages/typescript
+        run: npm run build
+
+      - name: Publish to npm
+        working-directory: packages/typescript
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm publish

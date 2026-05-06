@@ -1,0 +1,47 @@
+{
+  "name": "@nexttoken/cli",
+  "version": "0.2.1",
+  "description": "NextToken CLI — call agents, manage workspaces, and run NextToken Runtime locally.",
+  "bin": {
+    "nexttoken": "./index.js"
+  },
+  "scripts": {
+    "test": "node --test 'tests/*.test.js'",
+    "prepack": "node scripts/prepack.js",
+    "postpack": "node scripts/postpack.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NextTokenAI/nexttoken.git",
+    "directory": "packages/node"
+  },
+  "keywords": [
+    "nexttoken",
+    "ai",
+    "agent",
+    "agents",
+    "workspace",
+    "runtime",
+    "cli",
+    "llm"
+  ],
+  "author": "NextToken <contact@nexttoken.co>",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "homepage": "https://nexttoken.co",
+  "bugs": {
+    "url": "https://github.com/NextTokenAI/nexttoken/issues"
+  },
+  "files": [
+    "index.js",
+    "lib/",
+    "commands/",
+    "README.md"
+  ],
+  "dependencies": {
+    "@nexttoken/sdk": "file:../typescript",
+    "mri": "^1.2.0"
+  }
+}
