@@ -1,6 +1,6 @@
 <p align="center">
   <h1 align="center">NextToken</h1>
-  <p align="center">The AI agent platform for data analysis, automation, and full-stack app building.</p>
+  <p align="center">The AI agent platform for Applied AI workflows.</p>
 </p>
 
 <p align="center">
