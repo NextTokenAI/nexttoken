@@ -15,7 +15,7 @@
 
 ## What is NextToken?
 
-NextToken is an AI agent platform where you chat with an agent that executes Python and shell code, queries databases like Snowflake and PostgreSQL, calls leading LLMs through a single API, connects to 1000+ third-party apps, and builds full-stack web applications — all inside isolated, persistent workspaces.
+NextToken is an AI agent platform where you chat with an agent that executes Python and shell code, queries databases like Snowflake and PostgreSQL, calls leading LLMs through a single API, trains and runs inference on models, connects to 1000+ third-party apps, and builds full-stack web applications — all inside isolated, persistent workspaces.
 
 Describe what you need in plain language and the agent handles the rest: writing code, running queries, generating visualizations, and deploying apps.
 
